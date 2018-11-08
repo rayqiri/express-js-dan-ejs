@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <table border="1">
+    	<thead>
+    		<th>Code</th>
+    		<th>Nama</th>
+    		<th>Departemen</th>
+    		<th>Usia</th>
+    	</thead>
+    	<tbody>
+    		<% student.forEach(function(siswa){ %>
+    		<td><%= siswa.code%></td>
+    		<td><%= siswa.name%></td>
+    		<td><%= siswa.department%></td>
+    		<td><%= siswa.age%></td>
+    		<% }); %>
+    	 <tr>
+    	</tbody>
+    </table>
+  </body>
+</html>

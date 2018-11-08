@@ -1,0 +1,56 @@
+<%- include('header') %>
+  <body>
+  	<%- include('menu') %>
+  	<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+<div class="span12">
+    <div class="widget">
+     
+            <div class="widget-header"> <i class="icon-th-list"></i>
+              <h3><%= title %></h3>
+            </div>
+            <% if (typeof sukses != 'undefined' && sukses) { %>
+<div class="alert alert-success"><%=sukses %></div>
+<% } else if(typeof error != 'undefined' && error) { %>
+<div class="alert alert-danger"><%=error %></div>
+<% } %>
+      <a href="/input_siswa" class="btn btn-primary"><i class="btn-icon-only icon-pencil"> Input Siswa</i></a>      
+    <table class="table widget-content table-striped table-bordered">
+    	<thead>
+        <tr>
+    		<th>Code</th>
+    		<th>Nama</th>
+    		<th>Departemen</th>
+    		<th>Usia</th>
+    		<th>Action</th>
+      </tr>
+    	</thead>
+    	<tbody>
+        
+    		<% students.forEach(function(siswa){ %>
+          <tr>
+    		<td><%= siswa.code%></td>
+    		<td><%= siswa.name%></td>
+    		<td><%= siswa.department%></td>
+    		<td><%= siswa.age%></td>
+    		<td><a href="/detail_siswa/<%= siswa.code %>" class="btn btn-small btn-primary" data-toggle="tooltip" data-placement="top" title="Detail"><i class="btn-icon-only icon-eye-open"> </i></a> <a href="/edit_siswa/<%= siswa.code %>" class="btn btn-small btn-success" data-toggle="tooltip" data-placement="top" title="Edit"><i class="btn-icon-only icon-edit"> </i></a> <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ??')){ location.href='/hapus_siswa/<%= siswa.code %>' }" class="btn btn-danger btn-small" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="btn-icon-only icon-remove"> </i></a></td> 
+        </tr>
+    		<% }); %>
+    	 
+    	</tbody>
+    </table>
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>    </div></div>  
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /main-inner -->
+</div>
+<%- include('footer') %>
+
+  </body>
+</html>
